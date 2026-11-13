@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual de Identidad Digital | Kenny Kitty</title>
+    <!-- Tipografías de Google Fonts (Primaria: Fredoka | Secundaria: Quicksand) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* =========================================
+           1. VARIABLES DE COLOR (MODO CLARO & OSCURO)
+           ========================================= */
+        :root {
+            --bg-main: #FFF5F8;
+            --bg-card: #FFFFFF;
+            --bg-soft: #FFE4EC;
+            --pink-primary: #FF69B4;
+            --pink-dark: #D81B60;
+            --pink-pastel: #FFB6C1;
+            --accent-red: #FF3366;
+            --accent-yellow: #FFD166;
+            --text-main: #4A2535;
+            --text-muted: #8C5A6E;
+            --border-color: #FFC2D4;
+            --shadow: 0 10px 25px rgba(255, 105, 180, 0.15);
+        }
+
+        /* Variables para el Modo Oscuro (Dark Kawaii) */
+        body.dark-mode {
+            --bg-main: #1A1016;
+            --bg-card: #281822;
+            --bg-soft: #38202E;
+            --pink-primary: #FF7EB9;
+            --pink-dark: #FF4D94;
+            --pink-pastel: #592E44;
+            --accent-red: #FF4D79;
+            --accent-yellow: #FFE082;
+            --text-main: #FFEBF2;
+            --text-muted: #D4A5B8;
+            --border-color: #5C2D44;
+            --shadow: 0 10px 25px rgba(0, 0, 0, 0.45);
+        }
+
+        /* =========================================
+           2. ESTILOS GENERALES Y TIPOGRAFÍA
+           ========================================= */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.6;
+            background-image: radial-gradient(var(--pink-pastel) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+
+        h1, h2, h3, h4, .brand-font {
+            font-family: 'Fredoka', sans-serif;
+            letter-spacing: 0.5px;
+        }
+
+        /* =========================================
+           3. NAVEGACIÓN SUPERIOR FLOTANTE
+           ========================================= */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: var(--bg-card);
+            border-bottom: 2px dashed var(--border-color);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: var(--shadow);
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--pink-dark);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 700;
+            padding: 8px 15px;
+            border-radius: 20px;
+        }
+
+        .nav-links a:hover {
+            background-color: var(--bg-soft);
+            color: var(--pink-dark);
+        }
+
+        .theme-toggle {
+            background: var(--pink-primary);
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 25px;
+            font-family: 'Fredoka', sans-serif;
+            font-size: 0.95rem;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(255, 105, 180, 0.3);
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.05);
+            background: var(--pink-dark);
+        }
+
+        /* =========================================
+           4. PORTADA / HERO SECTION
+           ========================================= */
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            max-width: 900px;
+            margin: 30px auto;
+            background: var(--bg-card);
+            border-radius: 35px;
+            border: 3px solid var(--border-color);
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--bg-soft);
+            color: var(--pink-dark);
+            padding: 6px 18px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            border: 1px solid var(--border-color);
+        }
+
+        header h1 {
+            font-size: 3rem;
+            color: var(--pink-dark);
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        /* =========================================
+           5. CONTENEDORES Y TARJETAS DE SECCIÓN
+           ========================================= */
+        main {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px 60px;
+        }
+
+        section {
+            background: var(--bg-card);
+            border-radius: 30px;
+            padding: 40px;
+            margin-bottom: 40px;
+            border: 2px solid var(--border-color);
+            box-shadow: var(--shadow);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px dashed var(--border-color);
+        }
+
+        .section-number {
+            background: var(--pink-primary);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .section-header h2 {
+            font-size: 1.9rem;
+            color: var(--pink-dark);
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .card-box {
+            background: var(--bg-soft);
+            padding: 25px;
+            border-radius: 22px;
+            border: 1.5px solid var(--border-color);
+        }
+
+        .card-box h3 {
+            color: var(--pink-dark);
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        /* =========================================
+           6. SECCIÓN 1: VALORES Y TONO DE VOZ
+           ========================================= */
+        .tags-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .tag-pill {
+            background: var(--bg-card);
+            color: var(--pink-dark);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 700;
+            border: 1.5px solid var(--pink-primary);
+            font-size: 0.95rem;
+        }
+
+        .voice-example {
+            margin-top: 12px;
+            padding: 12px 15px;
+            background: var(--bg-card);
+            border-left: 4px solid var(--pink-primary);
+            border-radius: 10px;
+            font-style: italic;
+        }
+
+        /* =========================================
+           7. SECCIÓN 2: LOGOTIPO, COLORES Y TIPOGRAFÍA
+           ========================================= */
+        .logo-showcase {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .logo-box {
+            flex: 1;
+            min-width: 260px;
+            padding: 30px;
+            border-radius: 25px;
+            text-align: center;
+            border: 2px dashed var(--border-color);
+        }
+
+        .logo-light {
+            background: #FFFFFF;
+            color: #D81B60;
+        }
+
+        .logo-dark {
+            background: #281822;
+            color: #FF7EB9;
+        }
+
+        /* Paleta de colores */
+        .color-card {
+            background: var(--bg-soft);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1.5px solid var(--border-color);
+            cursor: pointer;
+        }
+
+        .color-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .color-swatch {
+            height: 110px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .color-info {
+            padding: 15px;
+            font-size: 0.9rem;
+        }
+
+        .color-info strong {
+            display: block;
+            font-size: 1.05rem;
+            color: var(--pink-dark);
+            margin-bottom: 5px;
+        }
+
+        /* Tipografías */
+        .typo-sample {
+            font-size: 2.2rem;
+            margin: 10px 0;
+            color: var(--pink-dark);
+        }
+
+        /* =========================================
+           8. SECCIÓN 3: APLICACIONES DIGITALES
+           ========================================= */
+        /* Mockup Redes Sociales */
+        .social-post-mockup {
+            background: linear-gradient(135deg, #FF9A9E 0%, #FECFEF 100%);
+            border-radius: 22px;
+            padding: 25px;
+            color: #4A2535;
+            text-align: center;
+            border: 3px solid #FFFFFF;
+            box-shadow: 0 8px 20px rgba(255, 105, 180, 0.25);
+        }
+
+        .social-cover-mockup {
+            background: linear-gradient(90deg, #FF69B4, #FF8DA1, #FFC2D4);
+            border-radius: 22px;
+            padding: 30px 20px;
+            color: white;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: 3px solid #FFFFFF;
+        }
+
+        /* Estilos de botones UI */
+        .buttons-showcase {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            align-items: center;
+            margin-top: 15px;
+        }
+
+        .btn-kiut-primary {
+            background: var(--pink-primary);
+            color: white;
+            border: none;
+            padding: 12px 26px;
+            border-radius: 50px;
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1rem;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(255, 105, 180, 0.4);
+        }
+
+        .btn-kiut-primary:hover {
+            transform: translateY(-2px);
+            background: var(--pink-dark);
+        }
+
+        .btn-kiut-secondary {
+            background: var(--bg-card);
+            color: var(--pink-dark);
+            border: 2px solid var(--pink-primary);
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        .btn-kiut-secondary:hover {
+            background: var(--bg-soft);
+        }
+
+        .btn-kiut-pill {
+            background: var(--accent-yellow);
+            color: #4A2535;
+            border: none;
+            padding: 10px 22px;
+            border-radius: 15px;
+            font-family: 'Fredoka', sans-serif;
+            font-size: 0.95rem;
+            cursor: pointer;
+        }
+
+        /* Notificación al copiar color */
+        #toast {
+            visibility: hidden;
+            min-width: 250px;
+            background-color: var(--pink-dark);
+            color: #fff;
+            text-align: center;
+            border-radius: 25px;
+            padding: 14px 20px;
+            position: fixed;
+            z-index: 200;
+            bottom: 30px;
+            right: 30px;
+            font-family: 'Fredoka', sans-serif;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        #toast.show {
+            visibility: visible;
+            animation: fadein 0.3s, fadeout 0.3s 2.2s;
+        }
+
+        @keyframes fadein { from {bottom: 0; opacity: 0;} to {bottom: 30px; opacity: 1;} }
+        @keyframes fadeout { from {bottom: 30px; opacity: 1;} to {bottom: 0; opacity: 0;} }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: var(--bg-card);
+            border-top: 2px dashed var(--border-color);
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            header h1 { font-size: 2.2rem; }
+            section { padding: 25px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- BARRA DE NAVEGACIÓN -->
+    <nav>
+        <a href="#" class="nav-brand">
+            <span>🎀</span> Kenny Kitty
+        </a>
+        <ul class="nav-links">
+            <li><a href="#plataforma">1. Plataforma</a></li>
+            <li><a href="#identidad">2. Identidad Visual</a></li>
+            <li><a href="#aplicaciones">3. Aplicaciones Digitales</a></li>
+        </ul>
+        <button class="theme-toggle" id="darkModeBtn" onclick="toggleDarkMode()">
+            🌙 Modo Oscuro
+        </button>
+    </nav>
+
+    <!-- PORTADA DEL MANUAL -->
+    <header>
+        <span class="badge">✨ Portafolio de Documentación Técnica v1.0</span>
+        <h1>Manual de Identidad Digital</h1>
+        <p>Guía oficial de estilo, arquitectura visual y normas digitales de <strong>Kenny Kitty</strong> — Tu tienda favorita de artículos originales y kawaii de Hello Kitty.</p>
+    </header>
+
+    <main>
+        <!-- =========================================================
+             BLOQUE 1: PLATAFORMA DE MARCA
+             ========================================================= -->
+        <section id="plataforma">
+            <div class="section-header">
+                <div class="section-number">1</div>
+                <h2>Plataforma de Marca</h2>
+            </div>
+
+            <div class="grid-2">
+                <div class="card-box">
+                    <h3>🌸 Misión</h3>
+                    <p>Llevar ternura, alegría y estilo kawaii a la vida cotidiana de nuestros clientes mediante productos exclusivos, accesorios y artículos coleccionables de Hello Kitty con la mejor calidad y atención personalizada.</p>
+                </div>
+
+                <div class="card-box">
+                    <h3>✨ Visión</h3>
+                    <p>Convertirnos en la tienda digital referente en cultura kawaii y artículos de Hello Kitty a nivel nacional, creando una comunidad apasionada donde cada compra sea una experiencia mágica e inolvidable.</p>
+                </div>
+
+                <div class="card-box">
+                    <h3>💖 Valores de Marca</h3>
+                    <div class="tags-container">
+                        <span class="tag-pill">🎀 Ternura y Detalle</span>
+                        <span class="tag-pill">🌟 Autenticidad</span>
+                        <span class="tag-pill">🤝 Cercanía con el Cliente</span>
+                        <span class="tag-pill">📦 Calidad Garantizada</span>
+                        <span class="tag-pill">💕 Pasión Kawaii</span>
+                    </div>
+                </div>
+
+                <div class="card-box">
+                    <h3>💬 Tono de Voz</h3>
+                    <p>Nuestro lenguaje es <strong>amigable, dulce, entusiasta y cercano</strong>. Tratamos a cada cliente como un mejor amigo, usando emojis tiernos de forma equilibrada sin perder claridad ni profesionalismo.</p>
+                    <div class="voice-example">
+                        "¡Hola, bestie! 🎀✨ Tu nuevo termo de Hello Kitty ya está empacado con mucho amor y listo para brillar contigo."
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================================
+             BLOQUE 2: IDENTIDAD VISUAL Y COLOR
+             ========================================================= -->
+        <section id="identidad">
+            <div class="section-header">
+                <div class="section-number">2</div>
+                <h2>Identidad Visual y Color</h2>
+            </div>
+
+            <!-- Logotipo -->
+            <h3 style="margin-bottom: 15px; color: var(--pink-dark);">🎀 Logotipo Oficial y Versiones</h3>
+            <p style="margin-bottom: 20px;">El isotipo combina orejas felinas redondeadas con el icónico lazo rosado/rojo, acompañado de tipografía suave. Debe respetarse siempre un área de protección mínima de 20px alrededor.</p>
+            
+            <div class="logo-showcase">
+                <!-- Versión Fondo Claro -->
+                <div class="logo-box logo-light">
+                    <svg width="110" height="85" viewBox="0 0 120 95" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Orejas y cabeza -->
+                        <path d="M25 45 L18 15 L45 28 Q60 24 75 28 L102 15 L95 45 Q105 65 90 80 Q60 92 30 80 Q15 65 25 45 Z" fill="#FFF0F5" stroke="#FF69B4" stroke-width="4"/>
+                        <!-- Ojos -->
+                        <ellipse cx="43" cy="56" rx="4" ry="6" fill="#4A2535"/>
+                        <ellipse cx="77" cy="56" rx="4" ry="6" fill="#4A2535"/>
+                        <!-- Nariz -->
+                        <ellipse cx="60" cy="63" rx="5" ry="3.5" fill="#FFD166"/>
+                        <!-- Moño Kawaii -->
+                        <circle cx="86" cy="28" r="7" fill="#FF3366"/>
+                        <path d="M80 26 Q66 14 68 30 Q66 42 80 31 Z" fill="#FF3366"/>
+                        <path d="M92 26 Q106 14 104 30 Q106 42 92 31 Z" fill="#FF3366"/>
+                    </svg>
+                    <div class="brand-font" style="font-size: 1.8rem; font-weight: 700;">Kenny Kitty</div>
+                    <small>Versión Principal (Fondos Claros)</small>
+                </div>
+
+                <!-- Versión Fondo Oscuro -->
+                <div class="logo-box logo-dark">
+                    <svg width="110" height="85" viewBox="0 0 120 95" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M25 45 L18 15 L45 28 Q60 24 75 28 L102 15 L95 45 Q105 65 90 80 Q60 92 30 80 Q15 65 25 45 Z" fill="#38202E" stroke="#FF7EB9" stroke-width="4"/>
+                        <ellipse cx="43" cy="56" rx="4" ry="6" fill="#FFEBF2"/>
+                        <ellipse cx="77" cy="56" rx="4" ry="6" fill="#FFEBF2"/>
+                        <ellipse cx="60" cy="63" rx="5" ry="3.5" fill="#FFD166"/>
+                        <circle cx="86" cy="28" r="7" fill="#FF4D79"/>
+                        <path d="M80 26 Q66 14 68 30 Q66 42 80 31 Z" fill="#FF4D79"/>
+                        <path d="M92 26 Q106 14 104 30 Q106 42 92 31 Z" fill="#FF4D79"/>
+                    </svg>
+                    <div class="brand-font" style="font-size: 1.8rem; font-weight: 700;">Kenny Kitty</div>
+                    <small>Versión Negativa (Modo Oscuro)</small>
+                </div>
+            </div>
+
+            <!-- Paleta de Colores -->
+            <h3 style="margin-bottom: 10px; color: var(--pink-dark);">🎨 Paleta de Colores Corporativa</h3>
+            <p style="margin-bottom: 20px; font-size: 0.95rem;">Haz clic sobre cualquier color para copiar automáticamente su código HEX.</p>
+
+            <div class="grid-3" style="margin-bottom: 35px;">
+                <div class="color-card" onclick="copyColor('#FF69B4')">
+                    <div class="color-swatch" style="background: #FF69B4; color: white;">Copiar HEX</div>
+                    <div class="color-info">
+                        <strong>Rosa Chicle (Primario)</strong>
+                        <div>HEX: <code>#FF69B4</code></div>
+                        <div>RGB: <code>rgb(255, 105, 180)</code></div>
+                    </div>
+                </div>
+
+                <div class="color-card" onclick="copyColor('#FFB6C1')">
+                    <div class="color-swatch" style="background: #FFB6C1; color: #4A2535;">Copiar HEX</div>
+                    <div class="color-info">
+                        <strong>Rosa Pastel (Secundario)</strong>
+                        <div>HEX: <code>#FFB6C1</code></div>
+                        <div>RGB: <code>rgb(255, 182, 193)</code></div>
+                    </div>
+                </div>
+
+                <div class="color-card" onclick="copyColor('#FF3366')">
+                    <div class="color-swatch" style="background: #FF3366; color: white;">Copiar HEX</div>
+                    <div class="color-info">
+                        <strong>Rojo Lazo (Acento)</strong>
+                        <div>HEX: <code>#FF3366</code></div>
+                        <div>RGB: <code>rgb(255, 51, 102)</code></div>
+                    </div>
+                </div>
+
+                <div class="color-card" onclick="copyColor('#FFF5F8')">
+                    <div class="color-swatch" style="background: #FFF5F8; color: #4A2535; border-bottom: 1px solid #FFC2D4;">Copiar HEX</div>
+                    <div class="color-info">
+                        <strong>Blanco Algodón (Fondo)</strong>
+                        <div>HEX: <code>#FFF5F8</code></div>
+                        <div>RGB: <code>rgb(255, 245, 248)</code></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tipografías -->
+            <h3 style="margin-bottom: 15px; color: var(--pink-dark);">🔤 Jerarquía Tipográfica</h3>
+            <div class="grid-2">
+                <div class="card-box">
+                    <span class="badge">Tipografía Primaria (Títulos y Logotipo)</span>
+                    <div class="typo-sample brand-font">Fredoka Bold</div>
+                    <p><strong>Uso:</strong> Encabezados, nombres de productos, botones y logotipo. Sus bordes redondeados transmiten dulzura y cercanía.</p>
+                    <p style="margin-top: 8px; font-family: 'Fredoka', sans-serif;">ABCDEFGHIJKLMNÑOPQRSTUVWXYZ 0123456789</p>
+                </div>
+
+                <div class="card-box">
+                    <span class="badge">Tipografía Secundaria (Textos y Descripciones)</span>
+                    <div class="typo-sample" style="font-family: 'Quicksand', sans-serif; font-weight: 700;">Quicksand Regular & Bold</div>
+                    <p><strong>Uso:</strong> Párrafos, fichas técnicas de productos, precios y navegación. Garantiza excelente lectura en pantallas móviles y escritorio.</p>
+                    <p style="margin-top: 8px;">abcdefghijklmnñopqrstuvwxyz 0123456789</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================================
+             BLOQUE 3: APLICACIONES DIGITALES
+             ========================================================= -->
+        <section id="aplicaciones">
+            <div class="section-header">
+                <div class="section-number">3</div>
+                <h2>Aplicaciones Digitales</h2>
+            </div>
+
+            <!-- Redes Sociales -->
+            <h3 style="margin-bottom: 15px; color: var(--pink-dark);">📱 Normas para Redes Sociales (Plantillas y Portadas)</h3>
+            <div class="grid-2" style="margin-bottom: 35px;">
+                <div class="card-box">
+                    <h4>Plantilla de Post (Instagram / TikTok 1:1)</h4>
+                    <p style="font-size: 0.9rem; margin-bottom: 15px;">Usar degradados pastel suaves, marco blanco redondeado y el logotipo en la esquina inferior.</p>
+                    <div class="social-post-mockup">
+                        <span style="background: white; padding: 4px 12px; border-radius: 15px; font-weight: 700; font-size: 0.8rem;">✨ NUEVO INGRESO ✨</span>
+                        <h3 style="margin: 15px 0 8px; font-size: 1.5rem;">Set Escolar Hello Kitty</h3>
+                        <p style="font-size: 0.95rem;">¡Disponible ahora en tienda! Envío rápido y empaque de regalo incluido 🎀</p>
+                        <div style="margin-top: 15px; font-weight: 700; font-size: 0.85rem;">@kennykitty.sv</div>
+                    </div>
+                </div>
+
+                <div class="card-box">
+                    <h4>Portada Digital (Facebook / Web Banner)</h4>
+                    <p style="font-size: 0.9rem; margin-bottom: 15px;">Composición horizontal centrada con alto contraste entre tipografía blanca y fondo rosa vibrante.</p>
+                    <div class="social-cover-mockup">
+                        <div style="font-size: 2rem;">🎀✨🐱</div>
+                        <h3 style="color: white; font-size: 1.6rem; margin: 5px 0;">Bienvenidos a Kenny Kitty</h3>
+                        <p style="font-size: 0.95rem; opacity: 0.95;">Accesorios • Peluches • Papelería Kawaii</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sitio Web: Botones y Modo Oscuro -->
+            <h3 style="margin-bottom: 15px; color: var(--pink-dark);">💻 Componentes Web (Botones y Modo Oscuro)</h3>
+            <div class="grid-2">
+                <div class="card-box">
+                    <h4>Estilo de Botones UI</h4>
+                    <p style="font-size: 0.92rem;">Todos los botones de acción deben tener esquinas completamente redondeadas (<code>border-radius: 50px</code>), sombra rosada suave y animación de elevación al pasar el cursor.</p>
+                    <div class="buttons-showcase">
+                        <button class="btn-kiut-primary" onclick="copyColor('Botón Primario Activo')">🛍️ Comprar Ahora</button>
+                        <button class="btn-kiut-secondary">💖 Ver Catálogo</button>
+                        <button class="btn-kiut-pill">⭐ Oferta Kiut</button>
+                    </div>
+                </div>
+
+                <div class="card-box">
+                    <h4>Reglas del Modo Oscuro (Dark Mode)</h4>
+                    <p style="font-size: 0.92rem; margin-bottom: 15px;">Para cuidar la vista de los usuarios de noche sin perder la esencia tierna, sustituimos el blanco por tono <strong>Ciruela Profundo (#1A1016)</strong> y elevamos la luminosidad de los rosas pastel.</p>
+                    <button class="btn-kiut-primary" onclick="toggleDarkMode()">
+                        🌗 Probar Cambio de Tema Ahora
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- NOTIFICACIÓN FLOTANTE -->
+    <div id="toast">¡Código copiado al portapapeles! 🎀</div>
+
+    <footer>
+        Manual de Identidad Digital — <strong>Kenny Kitty</strong> © 2026 | Elaborado con HTML5, CSS3 y JS Puro 🎀
+    </footer>
+
+    <script>
+        // Función para alternar Modo Claro / Modo Oscuro
+        function toggleDarkMode() {
+            const body = document.body;
+            const btn = document.getElementById('darkModeBtn');
+            body.classList.toggle('dark-mode');
+
+            if (body.classList.contains('dark-mode')) {
+                btn.innerHTML = '☀️ Modo Claro';
+            } else {
+                btn.innerHTML = '🌙 Modo Oscuro';
+            }
+        }
+
+        // Función para copiar códigos de color con notificación kiut
+        function copyColor(text) {
+            navigator.clipboard.writeText(text);
+            const toast = document.getElementById('toast');
+            toast.innerText = `✨ Copiado: ${text} 🎀`;
+            toast.className = 'show';
+            setTimeout(() => {
+                toast.className = toast.className.replace('show', '');
+            }, 2500);
+        }
+    </script>
+</body>
+</html>
